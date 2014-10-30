@@ -33,7 +33,7 @@ void node::scanWord(std::string toParse)
             {
                 holder->scanWord(toParse.substr(1,toParse.length()-1));
             }
-            else if(toParse.length()==0)
+            else if(toParse.length()==1)
                 //this is the last character in a word, so we mark it as being
                 //the end of a word
             {
@@ -48,7 +48,7 @@ void node::scanWord(std::string toParse)
             {
                 transverseTo(toParse[0])->scanWord(toParse.substr(1,toParse.length()-1));
             }
-            else if(toParse.length()==0)
+            else if(toParse.length()==1)
                 //here we are in the last node in a word, so we mark it
                 //as being the end of a word
             {
@@ -60,7 +60,6 @@ void node::scanWord(std::string toParse)
 
 node* node::transverseTo(char ch)
 {
-    int looper;
     for(int looper = 0;looper<nodeVector.size();looper++)
     {
         if(nodeVector[looper]->getChar()==ch)
@@ -75,23 +74,44 @@ void node::printDict(std::string helper)
 {
     helper = helper + " ";
     helper[helper.length()-1]=getChar();
+    if(isWordEnd==true)
+    {
+        std::cout<<helper;
+    }
     if(nodeVector.size()>0)
     {
-        for(int looper = 0;looper<nodeVector.size();looper++)
+        for(int looper = 0; looper<nodeVector.size(); looper++)
         {
             nodeVector[looper]->printDict(helper);
         }
     }
-    else
-    {
-        helper = helper + " ";
-        helper[helper.length()-1] = getChar();
-    }
-
-
 }
 
 void node::setEnd()
 {
     isWordEnd=true;
+}
+
+void node::readFile(std::string fileName)
+{
+    std::fstream inFile;
+    inFile.open(fileName.c_str());
+    std::string word;
+
+    while(inFile.good())
+    {
+        inFile>>word;
+        scanWord(word);
+    }
+
+
+    inFile.close();
+}
+
+node::~node()
+{
+    for(int looper = 0;looper>nodeVector.size();looper++)
+    {
+        delete nodeVector[looper];
+    }
 }

@@ -6,3 +6,15 @@
 	<vector>
 	<string>
 
+1414673283 source:c:\users\jeremy\documents\github\spellchecker\treinode.cpp
+	"treiNode.hpp"
+
+1414671898 c:\users\jeremy\documents\github\spellchecker\treinode.hpp
+	<vector>
+	<string>
+	<iostream>
+	<fstream>
+
+1414673086 source:c:\users\jeremy\documents\github\spellchecker\main.cpp
+	"treiNode.hpp"
+

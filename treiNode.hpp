@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 class node
 {
@@ -15,6 +16,7 @@ public:
     node* transverseTo(char);
     void printDict(std::string);
     void setEnd();
+    void readFile(std::string);
     ~node();
 private:
     char nodeChar;
