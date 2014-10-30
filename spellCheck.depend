@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1414461247 source:c:\users\jeremy\documents\github\spellcheck\treinode.cpp
+	"treiNode.hpp"
+
+1414455782 c:\users\jeremy\documents\github\spellcheck\treinode.hpp
+	<vector>
+	<string>
+
